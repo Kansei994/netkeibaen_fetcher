@@ -12,6 +12,8 @@ from pedigree import pedigree
 
 from horse_search import find_id
 
+from trending_horses import get_trending_horses
+
 
 def result():
     word = input("Horse Name: ")
@@ -25,4 +27,14 @@ def result():
     pedigree((horse_id))
     return 
 
-result()
+def user_input():
+    u_input = input("Please input trending for trending horses, or search for searching a horse: ")
+    if u_input in ("Search").lower():
+        result()
+    elif u_input in ("Trending").lower():
+        get_trending_horses()
+    else:
+        print("Invalid Input.")
+    user_input()
+
+user_input()
